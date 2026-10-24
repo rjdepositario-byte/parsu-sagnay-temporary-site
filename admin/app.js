@@ -249,7 +249,7 @@ function bindGlobalHandlers(){
         const fd=new FormData(form);const {data,error}=await state.client.auth.signInWithPassword({email:String(fd.get('email')).trim(),password:String(fd.get('password'))});
         if(error)throw error;state.session=data.session;await loadProfile(data.user);
       }else if(form.id==='resetForm'){
-        const fd=new FormData(form);const {error}=await state.client.auth.resetPasswordForEmail(String(fd.get('email')).trim(),{redirectTo});
+        const fd=new FormData(form);const {error}=await state.client.auth.resetPasswordForEmail(String(fd.get('email')).trim(),{redirectTo:redirectUrl});
         if(error)throw error;renderLogin('If the email is cleared, a reset link will be sent. Check your inbox.','login');
       }else if(form.id==='setPasswordForm'){
         const fd=new FormData(form),password=String(fd.get('password')),confirm=String(fd.get('confirm'));
