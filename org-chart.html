@@ -7,13 +7,21 @@
 .flow-node .flow-copy{min-width:0}.flow-node small{display:block;color:#0782a0;font-weight:900;letter-spacing:.1em;text-transform:uppercase;font-size:.62rem;margin-bottom:.15rem}
 .flow-node b{display:block;color:#10234d;font-size:.88rem;line-height:1.25}.flow-node span{display:block;color:#62718d;font-size:.7rem;line-height:1.35;font-weight:650;margin-top:.15rem}
 .flow-node.president{max-width:470px;margin:0 auto;background:#08163e;border-color:#08163e;color:#fff}.flow-node.president b,.flow-node.president small{color:#fff}.flow-node.president span{color:#dbe5ff}
-.flow-node.dean{border:1.5px solid #edbb24;background:linear-gradient(150deg,#fff7d8,#fff);max-width:540px}.flow-node.dean img{width:76px;height:76px;flex-basis:76px}
-.flow-node.assistant-to-dean{position:relative}
-.flow-node.assistant-to-dean:before{content:"";position:absolute;left:-1rem;top:50%;width:1rem;border-top:2px dashed var(--flow-orange);transform:translateY(-1px);pointer-events:none}
-.flow-node.assistant-to-dean img{width:76px;height:76px;flex-basis:76px}
+.flow-node.dean{grid-column:2;border:1.5px solid #edbb24;background:linear-gradient(150deg,#fff7d8,#fff);max-width:540px}.flow-node.dean img{width:76px;height:76px;flex-basis:76px}
+.flow-node.assistant-to-dean{position:absolute;left:60%;top:calc(50% + 12px);transform:translateY(-50%);display:flex;align-items:center;gap:.55rem;width:clamp(200px,21vw,250px);max-width:250px;min-height:68px;padding:.55rem .65rem;background:#f5f7fb;border:1px dashed #9aabc4;border-radius:12px;box-shadow:none;z-index:1}
+.flow-node.assistant-to-dean:before{content:none}
+.flow-node.assistant-to-dean img{width:46px;height:46px;flex:0 0 46px;border-width:2px;box-shadow:none}
+.flow-node.assistant-to-dean small{color:#b06b0b;font-size:.54rem;letter-spacing:.07em}
+.flow-node.assistant-to-dean b{font-size:.76rem}
+.flow-node.assistant-to-dean span{font-size:.62rem;color:#66738a}
 .flow-stem{height:24px;width:2px;background:var(--flow-orange);margin:0 auto}
 .flow-vps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.7rem;position:relative}
-.flow-campus-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;max-width:900px;margin:0 auto}
+.flow-campus-link,.flow-unit-link{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.7rem}
+.flow-campus-link .flow-stem,.flow-unit-link .flow-stem{grid-column:2}
+.flow-campus-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.7rem;margin:0;align-items:center;position:relative}
+.flow-assistant-link{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:0}
+.flow-assistant-link path{fill:none;stroke:var(--flow-orange);stroke-width:2;stroke-dasharray:1.5 1.1;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.flow-node.dean{position:relative;z-index:1}
 .flow-unit-stage{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.6fr) minmax(0,1.1fr);gap:1rem;position:relative;padding-top:28px;align-items:start}
 .flow-unit-stage:before{content:"";position:absolute;left:16%;right:16%;top:0;border-top:2px solid var(--flow-orange)}
 .flow-unit{position:relative;background:#f6f9ff;border:1px solid #dbe5f4;border-radius:16px;padding:.85rem;min-width:0}
@@ -27,8 +35,9 @@
 .flow-subunit .flow-node img{width:48px;height:48px;flex-basis:48px}
 .flow-subunit .flow-node b{font-size:.75rem}.flow-subunit .flow-node span{font-size:.65rem}
 .flow-university-note{margin:.7rem auto 0;max-width:1000px;text-align:center;font-size:.75rem;color:#66738a}
-@media(max-width:1050px){.flow-unit-stage{grid-template-columns:1fr 1.35fr}.flow-unit.admin-flow{grid-column:1/-1}.flow-unit.admin-flow .flow-person-list{grid-template-columns:repeat(2,minmax(0,1fr))}.flow-vps{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:700px){.flow-vps,.flow-campus-row,.flow-unit-stage,.flow-academic-pairs{grid-template-columns:1fr}.flow-unit-stage{padding-top:0}.flow-unit-stage:before,.flow-unit:before{display:none}.flow-unit.admin-flow{grid-column:auto}.flow-unit.admin-flow .flow-person-list{grid-template-columns:1fr}.flow-node{max-width:100%}.flow-node.assistant-to-dean:before{left:50%;top:-1rem;width:0;height:1rem;border-top:0;border-left:2px dashed var(--flow-orange);transform:translateX(-1px)}.flow-stem{height:18px}}
+@media(max-width:1050px){.flow-unit-stage{grid-template-columns:1fr 1.35fr}.flow-unit.admin-flow{grid-column:1/-1}.flow-unit.admin-flow .flow-person-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:701px) and (max-width:1050px){.flow-vps .flow-node{padding:.55rem;gap:.45rem}.flow-vps .flow-node img{width:46px;height:46px;flex-basis:46px}.flow-vps .flow-node b{font-size:.76rem}.flow-vps .flow-node span{font-size:.63rem}}
+@media(max-width:700px){.flow-vps,.flow-campus-row,.flow-unit-stage,.flow-academic-pairs{grid-template-columns:1fr}.flow-campus-link,.flow-unit-link,.flow-assistant-link{display:none}.flow-node.dean,.flow-node.assistant-to-dean{grid-column:auto}.flow-unit-stage{padding-top:0}.flow-unit-stage:before,.flow-unit:before{display:none}.flow-unit.admin-flow{grid-column:auto}.flow-unit.admin-flow .flow-person-list{grid-template-columns:1fr}.flow-node{max-width:100%}.flow-node.assistant-to-dean{position:relative;left:auto;top:auto;transform:none;width:auto;max-width:250px;justify-self:center;margin-top:0}.flow-node.assistant-to-dean:before{content:"";position:absolute;left:50%;top:-.7rem;width:0;height:.7rem;border-left:2px dashed var(--flow-orange);transform:translateX(-1px)}.flow-stem{height:18px}}
 </style></head><body>
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
 <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5L2 9Z"/><path d="M6 11.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/><path d="M22 9v5"/></symbol>
@@ -72,12 +81,13 @@
 <div class="flow-node"><img src="assets/people/raul-bradecina.jpg" alt="Raul G. Bradecina, PhD" width="360" height="360"><div class="flow-copy"><small>Vice President</small><b>Raul G. Bradecina, PhD</b><span>Research and Extension</span></div></div>
 <div class="flow-node"><img src="assets/people/kier-gasga.jpg" alt="Engr. Kier P. Gasga" width="360" height="360"><div class="flow-copy"><small>OIC Vice President</small><b>Engr. Kier P. Gasga (OIC)</b><span>Executive Operations and Institutional Development</span></div></div>
 </div>
-<div class="flow-stem"></div>
+<div class="flow-campus-link" aria-hidden="true"><div class="flow-stem"></div></div>
 <div class="flow-campus-row">
-<div class="flow-node dean"><img src="assets/people/jonel-corral.jpg" alt="Jonel M. Corral, PhD" width="375" height="375"><div class="flow-copy"><small>Campus Leadership</small><b>Jonel M. Corral, PhD</b><span>Campus Dean · College Dean</span></div></div>
-<div class="flow-node assistant-to-dean"><img src="assets/people/adrian-abad.jpg" alt="Adrian Achilles C. Abad" width="375" height="375"><div class="flow-copy"><small>Campus Administration</small><b>Adrian Achilles C. Abad</b><span>Administrative Aide VI (Clerk III) · Assistant to the Campus Dean</span></div></div>
+<svg class="flow-assistant-link" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M49 50 H57 V62 H60"/></svg>
+<div class="flow-node dean"><img src="assets/people/jonel-corral.jpg" alt="Jonel M. Corral, PhD" width="375" height="375"><div class="flow-copy"><small>Campus Leadership</small><b>Jonel M. Corral, PhD</b><span>Campus Dean · College Dean · Reports to VP for Academic Affairs</span></div></div>
+<div class="flow-node assistant-to-dean"><img src="assets/people/adrian-abad.jpg" alt="Adrian Achilles C. Abad" width="375" height="375"><div class="flow-copy"><small>Assistant to Campus Dean</small><b>Adrian Achilles C. Abad</b><span>Administrative Aide VI (Clerk III)</span></div></div>
 </div>
-<div class="flow-stem"></div>
+<div class="flow-unit-link" aria-hidden="true"><div class="flow-stem"></div></div>
 <div class="flow-unit-stage">
 <section class="flow-unit"><h2>Support to Academic Operations</h2><div class="flow-person-list">
 <div class="flow-node"><img src="assets/people/rowen-depositario.jpg" alt="Rowen John R. Depositario, RL"><div class="flow-copy"><b>Rowen John R. Depositario, RL</b><span>College Librarian I</span></div></div>
