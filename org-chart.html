@@ -1,6 +1,35 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Org Chart & Personnel | ParSU Sagñay Campus</title><meta name="description" content="Organizational chart and personnel directory for Partido State University Sagñay Campus.">
-<link rel="icon" href="assets/sagnay-badge-web.png"><link rel="stylesheet" href="assets/css/style.css"><script>document.documentElement.classList.add("js")</script></head><body>
+<link rel="icon" href="assets/sagnay-badge-web.png"><link rel="stylesheet" href="assets/css/style.css"><script>document.documentElement.classList.add("js")</script><style>
+.org-flow{--flow-orange:#f58220;max-width:1380px;margin:0 auto;color:var(--ink,#1d2b4f)}
+.flow-node{display:flex;align-items:center;gap:.8rem;background:#fff;border:1px solid var(--line,#dce5f5);border-radius:14px;padding:.72rem .85rem;box-shadow:0 8px 22px rgba(7,25,71,.07);min-height:84px}
+.flow-node img{width:62px;height:62px;flex:0 0 62px;object-fit:cover;border-radius:50%;border:3px solid #fff;box-shadow:0 4px 12px #0b1c3b25;background:#e8f0ff}
+.flow-node .flow-copy{min-width:0}.flow-node small{display:block;color:#0782a0;font-weight:900;letter-spacing:.1em;text-transform:uppercase;font-size:.62rem;margin-bottom:.15rem}
+.flow-node b{display:block;color:#10234d;font-size:.88rem;line-height:1.25}.flow-node span{display:block;color:#62718d;font-size:.7rem;line-height:1.35;font-weight:650;margin-top:.15rem}
+.flow-node.president{max-width:470px;margin:0 auto;background:#08163e;border-color:#08163e;color:#fff}.flow-node.president b,.flow-node.president small{color:#fff}.flow-node.president span{color:#dbe5ff}
+.flow-node.dean{border:1.5px solid #edbb24;background:linear-gradient(150deg,#fff7d8,#fff);max-width:540px}.flow-node.dean img{width:76px;height:76px;flex-basis:76px}
+.flow-node.assistant-to-dean{position:relative}
+.flow-node.assistant-to-dean:before{content:"";position:absolute;left:-1rem;top:50%;width:1rem;border-top:2px dashed var(--flow-orange);transform:translateY(-1px);pointer-events:none}
+.flow-node.assistant-to-dean img{width:76px;height:76px;flex-basis:76px}
+.flow-stem{height:24px;width:2px;background:var(--flow-orange);margin:0 auto}
+.flow-vps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.7rem;position:relative}
+.flow-campus-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;max-width:900px;margin:0 auto}
+.flow-unit-stage{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.6fr) minmax(0,1.1fr);gap:1rem;position:relative;padding-top:28px;align-items:start}
+.flow-unit-stage:before{content:"";position:absolute;left:16%;right:16%;top:0;border-top:2px solid var(--flow-orange)}
+.flow-unit{position:relative;background:#f6f9ff;border:1px solid #dbe5f4;border-radius:16px;padding:.85rem;min-width:0}
+.flow-unit:before{content:"";position:absolute;left:50%;top:-29px;height:28px;border-left:2px solid var(--flow-orange)}
+.flow-unit h2{margin:0 0 .7rem;text-align:center;background:#e8effb;border:1px dashed #97afd9;border-radius:8px;padding:.55rem .45rem;color:#17417a;font-size:.82rem;line-height:1.25;text-transform:uppercase;letter-spacing:.04em}
+.flow-unit h3{margin:.2rem 0 .65rem;text-align:center;color:#153b72;font-size:.78rem;padding-bottom:.45rem;border-bottom:1px solid #d6e0f0}
+.flow-unit .flow-person-list{display:grid;gap:.55rem}
+.flow-academic-pairs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+.flow-subunit{background:#fff;border:1px solid #e1e8f2;border-radius:12px;padding:.65rem;min-width:0}
+.flow-subunit .flow-node{padding:.55rem;gap:.55rem;min-height:72px;box-shadow:none}
+.flow-subunit .flow-node img{width:48px;height:48px;flex-basis:48px}
+.flow-subunit .flow-node b{font-size:.75rem}.flow-subunit .flow-node span{font-size:.65rem}
+.flow-university-note{margin:.7rem auto 0;max-width:1000px;text-align:center;font-size:.75rem;color:#66738a}
+@media(max-width:1050px){.flow-unit-stage{grid-template-columns:1fr 1.35fr}.flow-unit.admin-flow{grid-column:1/-1}.flow-unit.admin-flow .flow-person-list{grid-template-columns:repeat(2,minmax(0,1fr))}.flow-vps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.flow-vps,.flow-campus-row,.flow-unit-stage,.flow-academic-pairs{grid-template-columns:1fr}.flow-unit-stage{padding-top:0}.flow-unit-stage:before,.flow-unit:before{display:none}.flow-unit.admin-flow{grid-column:auto}.flow-unit.admin-flow .flow-person-list{grid-template-columns:1fr}.flow-node{max-width:100%}.flow-node.assistant-to-dean:before{left:50%;top:-1rem;width:0;height:1rem;border-top:0;border-left:2px dashed var(--flow-orange);transform:translateX(-1px)}.flow-stem{height:18px}}
+</style></head><body>
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
 <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5L2 9Z"/><path d="M6 11.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/><path d="M22 9v5"/></symbol>
 <symbol id="i-fish" viewBox="0 0 24 24"><path d="M6.5 12C7.4 8.8 9.9 7 13 7c3 0 5.6 1.8 6.5 5-.9 3.2-3.5 5-6.5 5-3.1 0-5.6-1.8-6.5-5Z"/><path d="M6.5 12L3 8.5v7L6.5 12Z"/><circle cx="15.5" cy="10.8" r=".6" fill="currentColor"/></symbol>
@@ -33,33 +62,73 @@
 <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
 <div class="nav-links" id="navLinks"><a href="index.html" class="">Home</a><a href="about.html" class="">About</a><a href="programs.html" class="">Programs</a><a href="org-chart.html" class="active">Org Chart</a><a href="campus-life.html" class="">Campus Life</a><a href="news.html" class="">News</a><a href="admissions.html" class="">Admissions</a><a href="faqs.html" class="">FAQs</a><a href="contact.html" class="">Contact</a><a class="btn btn-gold btn-sm" href="contact.html">Visit Us →</a></div></nav></header><main><section class="page-hero"><div class="container"><div class="breadcrumb"><a href="index.html">Home</a> / Org Chart</div><h1>Organizational chart and personnel</h1><p>Campus leadership and personnel, organized by unit from the supplied Sagñay Campus organizational chart.</p></div></section>
 <section><div class="container">
-<div class="verify-alert"><svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg> <b>Personnel roster:</b> Names and assignments below follow the supplied ParSU Sagñay organizational chart. People with more than one assignment are listed once with their roles combined. For corrections or current updates, contact the campus. &nbsp;<a href="assets/ParSU-Sagnay-Organizational-Chart-Reference.pdf" download><b><svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg> Printable Org Chart (PDF)</b></a></div>
-<div class="org-node president"><img class="portrait" src="assets/people/arnel-zarcedo.jpg" alt="Arnel B. Zarcedo, EDEL" width="360" height="360"><small>University President</small><b>Arnel B. Zarcedo, EDEL</b><span>SUC President III</span></div>
-<div class="org-connector"></div>
-<div class="org-row cols-4">
-<div class="org-node"><img class="portrait" src="assets/people/charlie-balagtas.jpg" alt="Prof. Charlie V. Balagtas" width="360" height="360"><small>Vice President</small><b>Prof. Charlie V. Balagtas</b><span>Administration and Finance</span></div>
-<div class="org-node"><img class="portrait" src="assets/people/michael-clores.jpg" alt="Michael A. Clores, PhD" width="360" height="360"><small>Vice President</small><b>Michael A. Clores, PhD</b><span>Academic Affairs</span></div>
-<div class="org-node"><img class="portrait" src="assets/people/raul-bradecina.jpg" alt="Raul G. Bradecina, PhD" width="360" height="360"><small>Vice President</small><b>Raul G. Bradecina, PhD</b><span>Research and Extension</span></div>
-<div class="org-node"><img class="portrait" src="assets/people/kier-gasga.jpg" alt="Engr. Kier P. Gasga" width="360" height="360"><small>OIC Vice President</small><b>Engr. Kier P. Gasga (OIC)</b><span>Executive Operations and Institutional Development</span></div>
+<div class="verify-alert"><svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg> <b>Personnel roster:</b> Names and assignments below follow the supplied ParSU Sagñay organizational chart. Some staff hold multiple assignments and therefore appear in more than one branch. For corrections or updates, contact the campus. &nbsp;<a href="assets/ParSU-Sagnay-Organizational-Chart-Reference.pdf" download><b><svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg> Printable Org Chart (PDF)</b></a></div>
+<div class="org-flow" aria-label="ParSU Sagñay Campus organizational flow chart">
+<div class="flow-node president"><img src="assets/people/arnel-zarcedo.jpg" alt="Arnel B. Zarcedo, EDEL" width="360" height="360"><div class="flow-copy"><small>University President</small><b>Arnel B. Zarcedo, EDEL</b><span>SUC President III</span></div></div>
+<div class="flow-stem"></div>
+<div class="flow-vps">
+<div class="flow-node"><img src="assets/people/charlie-balagtas.jpg" alt="Prof. Charlie V. Balagtas" width="360" height="360"><div class="flow-copy"><small>Vice President</small><b>Prof. Charlie V. Balagtas</b><span>Administration and Finance</span></div></div>
+<div class="flow-node"><img src="assets/people/michael-clores.jpg" alt="Michael A. Clores, PhD" width="360" height="360"><div class="flow-copy"><small>Vice President</small><b>Michael A. Clores, PhD</b><span>Academic Affairs</span></div></div>
+<div class="flow-node"><img src="assets/people/raul-bradecina.jpg" alt="Raul G. Bradecina, PhD" width="360" height="360"><div class="flow-copy"><small>Vice President</small><b>Raul G. Bradecina, PhD</b><span>Research and Extension</span></div></div>
+<div class="flow-node"><img src="assets/people/kier-gasga.jpg" alt="Engr. Kier P. Gasga" width="360" height="360"><div class="flow-copy"><small>OIC Vice President</small><b>Engr. Kier P. Gasga (OIC)</b><span>Executive Operations and Institutional Development</span></div></div>
 </div>
-<div class="org-connector"></div>
-<div class="org-row cols-2">
-<div class="org-node dean"><img class="portrait" src="assets/people/jonel-corral.jpg" alt="Jonel M. Corral, PhD" width="375" height="375"><small>Campus Leadership</small><b>Jonel M. Corral, PhD</b><span>Campus Dean · College Dean</span></div>
-<div class="org-node"><img class="portrait" src="assets/people/adrian-abad.jpg" alt="Adrian Achilles C. Abad" width="375" height="375"><small>Campus Administration</small><b>Adrian Achilles C. Abad</b><span>Administrative Aide VI (Clerk III)</span></div>
+<div class="flow-stem"></div>
+<div class="flow-campus-row">
+<div class="flow-node dean"><img src="assets/people/jonel-corral.jpg" alt="Jonel M. Corral, PhD" width="375" height="375"><div class="flow-copy"><small>Campus Leadership</small><b>Jonel M. Corral, PhD</b><span>Campus Dean · College Dean</span></div></div>
+<div class="flow-node assistant-to-dean"><img src="assets/people/adrian-abad.jpg" alt="Adrian Achilles C. Abad" width="375" height="375"><div class="flow-copy"><small>Campus Administration</small><b>Adrian Achilles C. Abad</b><span>Administrative Aide VI (Clerk III) · Assistant to the Campus Dean</span></div></div>
 </div>
-<div class="org-connector"></div>
-<div class="org-row cols-2">
-<div class="org-node"><img class="portrait" src="assets/people/christina-gumba.jpg" alt="Maria Christina G. Garcia, MMA" width="375" height="375"><small>Department Chair</small><b>Maria Christina G. Garcia, MMA</b><span>Marine Science Department</span></div>
-<div class="org-node"><img class="portrait" src="assets/people/jasper-nieves.jpg" alt="Jasper R. Nieves, MSFi" width="375" height="375"><small>Department Chair</small><b>Jasper R. Nieves, MSFi</b><span>Fisheries Department</span></div>
+<div class="flow-stem"></div>
+<div class="flow-unit-stage">
+<section class="flow-unit"><h2>Support to Academic Operations</h2><div class="flow-person-list">
+<div class="flow-node"><img src="assets/people/rowen-depositario.jpg" alt="Rowen John R. Depositario, RL"><div class="flow-copy"><b>Rowen John R. Depositario, RL</b><span>College Librarian I</span></div></div>
+<div class="flow-node"><img src="assets/people/aldren-borromeo.jpg" alt="Aldren P. Borromeo"><div class="flow-copy"><b>Aldren P. Borromeo</b><span>Library Assistant</span></div></div>
+<div class="flow-node"><img src="assets/people/kimberly-acerado.jpg" alt="Kimberly M. Acerado"><div class="flow-copy"><b>Kimberly M. Acerado</b><span>Registrar Designate</span></div></div>
+<div class="flow-node"><img src="assets/people/manuela-encinas.jpg" alt="Manuela R. Encinas, MLIS"><div class="flow-copy"><b>Manuela R. Encinas, MLIS</b><span>Office of Student Affairs and Services Coordinator</span></div></div>
+<div class="flow-node"><img src="assets/people/eulalio-mangaoang.jpg" alt="Eulalio Patricio Mangaoang"><div class="flow-copy"><b>Eulalio Patricio Mangaoang</b><span>Nurse II</span></div></div>
+<div class="flow-node"><img src="assets/people/sheena-garchitorena.jpg" alt="Sheena B. Garchitorena"><div class="flow-copy"><b>Sheena B. Garchitorena</b><span>Guidance and Counselling Coordinator</span></div></div>
+<div class="flow-node"><img src="assets/people/ramil-madrideo.jpg" alt="Ramil Earl A. Madrideo"><div class="flow-copy"><b>Ramil Earl A. Madrideo</b><span>Sports and Athletics Coordinator</span></div></div>
+<div class="flow-node"><img src="assets/people/christina-gumba.jpg" alt="Maria Christina G. Garcia, MMA"><div class="flow-copy"><b>Maria Christina G. Garcia, MMA</b><span>Culture and Arts Coordinator</span></div></div>
+</div></section>
+<section class="flow-unit"><h2>Academic Delivery Units</h2><div class="flow-academic-pairs">
+<div class="flow-subunit"><h3>Marine Science Department</h3><div class="flow-person-list">
+<div class="flow-node"><img src="assets/people/christina-gumba.jpg" alt="Maria Christina G. Garcia, MMA"><div class="flow-copy"><small>Department Chair</small><b>Maria Christina G. Garcia, MMA</b><span>Marine Science Department</span></div></div>
+<div class="flow-node"><img src="assets/people/jonel-corral.jpg" alt="Jonel M. Corral, PhD"><div class="flow-copy"><b>Jonel M. Corral, PhD</b><span>Associate Professor II</span></div></div>
+<div class="flow-node"><img src="assets/people/manuela-encinas.jpg" alt="Manuela R. Encinas, MLIS"><div class="flow-copy"><b>Manuela R. Encinas, MLIS</b><span>Assistant Professor I</span></div></div>
+<div class="flow-node"><img src="assets/people/joela-dacillo.jpg" alt="Joela Mizchelle D. Dacillo, PhD"><div class="flow-copy"><b>Joela Mizchelle D. Dacillo, PhD</b><span>Instructor I</span></div></div>
+<div class="flow-node"><img src="assets/people/ramil-madrideo.jpg" alt="Ramil Earl A. Madrideo"><div class="flow-copy"><b>Ramil Earl A. Madrideo</b><span>Instructor I</span></div></div>
+</div></div>
+<div class="flow-subunit"><h3>Fisheries Department</h3><div class="flow-person-list">
+<div class="flow-node"><img src="assets/people/jasper-nieves.jpg" alt="Jasper R. Nieves, MSFi"><div class="flow-copy"><small>Department Chair</small><b>Jasper R. Nieves, MSFi</b><span>Fisheries Department</span></div></div>
+<div class="flow-node"><img src="assets/people/raul-bradecina.jpg" alt="Raul G. Bradecina, PhD"><div class="flow-copy"><b>Raul G. Bradecina, PhD</b><span>University Professor</span></div></div>
+<div class="flow-node"><img src="assets/people/patricia-candelaria.jpg" alt="Patricia M. Candelaria"><div class="flow-copy"><b>Prof. Patricia M. Candelaria</b><span>Professor IV</span></div></div>
+<div class="flow-node"><img src="assets/people/cristina-lim.jpg" alt="Cristina P. Lim, PhD"><div class="flow-copy"><b>Cristina P. Lim, PhD</b><span>Professor IV</span></div></div>
+<div class="flow-node"><img src="assets/people/raul-burce.jpg" alt="Raul B. Burce"><div class="flow-copy"><b>Raul B. Burce</b><span>Instructor III</span></div></div>
+<div class="flow-node"><img src="assets/people/irene-daet.jpg" alt="Irene P. Daet, MSFi"><div class="flow-copy"><b>Irene P. Daet, MSFi</b><span>Instructor III</span></div></div>
+<div class="flow-node"><img src="assets/people/marie-france-de-vergara.jpg" alt="Marie France Q. De Vergara"><div class="flow-copy"><b>Marie France Q. De Vergara</b><span>Instructor III</span></div></div>
+<div class="flow-node"><img src="assets/people/lander-plantado.jpg" alt="Lander C. Plantado, MSFi"><div class="flow-copy"><b>Lander C. Plantado, MSFi</b><span>Instructor I</span></div></div>
+<div class="flow-node"><img src="assets/people/jennilyn-tapar.jpg" alt="Jennilyn O. Tapar"><div class="flow-copy"><b>Jennilyn O. Tapar</b><span>Instructor I</span></div></div>
+<div class="flow-node"><img src="assets/people/willy-janohan.jpg" alt="Willy P. Janohan"><div class="flow-copy"><b>Willy P. Janohan</b><span>Instructor I</span></div></div>
+</div></div>
+</div></section>
+<section class="flow-unit admin-flow"><h2>General Administration and Support Services</h2><div class="flow-person-list">
+<div class="flow-node"><img src="assets/people/aster-mabana.jpg" alt="Aster B. Mabana"><div class="flow-copy"><b>Aster B. Mabana</b><span>Administrative Officer V</span></div></div>
+<div class="flow-node"><img src="assets/people/kimberly-acerado.jpg" alt="Kimberly M. Acerado"><div class="flow-copy"><b>Kimberly M. Acerado</b><span>Administrative Officer IV (HRMO II)</span></div></div>
+<div class="flow-node"><img src="assets/people/nelson-mesia.jpg" alt="Nelson A. Mesia, Jr."><div class="flow-copy"><b>Nelson A. Mesia, Jr.</b><span>Administrative Officer II (HRMO I)</span></div></div>
+<div class="flow-node"><img src="assets/people/sheena-respeto.jpg" alt="Sheena Rea B. Respeto"><div class="flow-copy"><b>Sheena Rea B. Respeto</b><span>Administrative Aide VI (Clerk III)</span></div></div>
+<div class="flow-node"><img src="assets/people/yanzee-palaypayon.jpg" alt="Yanzee B. Palaypayon"><div class="flow-copy"><b>Yanzee B. Palaypayon</b><span>Administrative Assistant II (Disbursing)</span></div></div>
+<div class="flow-node"><img src="assets/people/mary-sheine-clarino.jpg" alt="Mary Sheine D. Clarino"><div class="flow-copy"><b>Mary Sheine D. Clarino</b><span>Administrative Aide VI (Clerk III)</span></div></div>
+<div class="flow-node"><img src="assets/people/dennis-pasobillo.jpg" alt="Dennis A. Pasobillo"><div class="flow-copy"><b>Dennis A. Pasobillo</b><span>Administrative Aide IV (Driver II)</span></div></div>
+<div class="flow-node"><img src="assets/people/sheena-garchitorena.jpg" alt="Sheena B. Garchitorena"><div class="flow-copy"><b>Sheena B. Garchitorena</b><span>Administrative Officer I (Records Officer I)</span></div></div>
+<div class="flow-node"><img src="assets/people/sheila-bautista.jpg" alt="Sheila B. Bautista"><div class="flow-copy"><b>Sheila B. Bautista</b><span>Administrative Aide VI (Clerk III)</span></div></div>
+<div class="flow-node"><img src="assets/people/stephanie-acerado.jpg" alt="Stephanie M. Acerado"><div class="flow-copy"><b>Stephanie M. Acerado</b><span>Administrative Officer I (Supply Officer I)</span></div></div>
+<div class="flow-node"><img src="assets/people/raymark-dela-cruz.jpg" alt="Raymark M. Dela Cruz"><div class="flow-copy"><b>Raymark M. Dela Cruz</b><span>Administrative Assistant II (Property Custodian)</span></div></div>
+<div class="flow-node"><img src="assets/people/elaine-bombase.jpg" alt="Elaine Grace L. Bombase"><div class="flow-copy"><b>Elaine Grace L. Bombase</b><span>Accountant II</span></div></div>
+<div class="flow-node"><img src="assets/people/paula-abiera.jpg" alt="Paula Bernadette S. Abiera"><div class="flow-copy"><b>Paula Bernadette S. Abiera</b><span>Administrative Officer IV (Budget Officer II)</span></div></div>
+<div class="flow-node"><img src="assets/people/maricel-cea.jpg" alt="Maricel C. Cea"><div class="flow-copy"><b>Maricel C. Cea</b><span>Administrative Officer III (Procurement)</span></div></div>
+<div class="flow-node"><img src="assets/people/crizel-aquino.jpg" alt="Crizel E. Aquino"><div class="flow-copy"><b>Crizel E. Aquino</b><span>Administrative Assistant I (Buyer I)</span></div></div>
+</div></section>
 </div>
-<div class="org-connector"></div>
-<div class="org-row cols-4">
-<div class="org-node unit"><small>Support to Academic Operations</small><b>Campus Services</b><span>Library · Registrar · Student Affairs · Health · Guidance · Sports · Culture</span><a href="#personnel" style="display:inline-block;margin-top:.55rem;font-weight:800;color:var(--blue)">View personnel ↓</a></div>
-<div class="org-node unit"><small>Academic Delivery</small><b>Marine Science Department</b><span>Department Chair · Associate/Assistant Professor · Instructor</span><a href="#personnel" style="display:inline-block;margin-top:.55rem;font-weight:800;color:var(--blue)">View personnel ↓</a></div>
-<div class="org-node unit"><small>Academic Delivery</small><b>Fisheries Department</b><span>Department Chair · University Professor · Faculty and Instructors</span><a href="#personnel" style="display:inline-block;margin-top:.55rem;font-weight:800;color:var(--blue)">View personnel ↓</a></div>
-<div class="org-node unit"><small>General Administration</small><b>Support Services</b><span>HRMO · Budget · Procurement · Records · Cashier · Operations</span><a href="#personnel" style="display:inline-block;margin-top:.55rem;font-weight:800;color:var(--blue)">View personnel ↓</a></div>
-</div>
-<p class="source-note" style="text-align:center;margin-top:1.1rem">University leadership and Sagñay Campus assignments are reproduced from the organizational chart supplied for this update. Unit assignments may overlap; see the directory below.</p>
+<p class="source-note" style="text-align:center;margin-top:1.1rem">People appear under each role/unit shown in the supplied chart; some individuals are repeated where they hold more than one assignment.</p>
 </div></section>
 
 <section class="section-sky" id="personnel"><div class="container">
