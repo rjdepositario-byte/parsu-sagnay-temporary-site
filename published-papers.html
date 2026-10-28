@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Published Papers | ParSU Sagñay Campus</title><meta name="description" content="Searchable template for research papers and publications from ParSU Sagñay Campus.">
+<link rel="icon" href="assets/sagnay-badge-web.png"><link rel="stylesheet" href="assets/css/style.css"><script>document.documentElement.classList.add("js")</script><style>
+.papers-page{padding:3.2rem 0 4rem;background:linear-gradient(180deg,#f6faff 0%,#fff 38%)}
+.papers-intro{max-width:820px;margin:0 auto 1.7rem;text-align:center}
+.papers-intro .eyebrow{margin-bottom:.8rem}
+.papers-intro h2{font-size:clamp(1.65rem,3.4vw,2.35rem);margin:.1rem 0 .6rem}
+.papers-intro p{color:#5b6b8f;max-width:720px;margin:0 auto}
+.paper-template-note{display:flex;gap:.8rem;align-items:flex-start;padding:1rem 1.15rem;margin:1.5rem 0 1.2rem;border:1px solid #efd67a;border-radius:15px;background:#fff8dd;color:#6b5100;box-shadow:0 7px 20px rgba(100,75,0,.06)}
+.paper-template-note .note-mark{flex:0 0 26px;width:26px;height:26px;display:grid;place-items:center;border-radius:50%;background:#ffe69a;font-weight:950}
+.paper-template-note strong{display:block;color:#654b00;margin-bottom:.12rem}
+.paper-template-note p{font-size:.88rem;line-height:1.5}
+.paper-tools{display:grid;grid-template-columns:minmax(220px,1.5fr) minmax(160px,.8fr) minmax(165px,.8fr) auto;gap:.75rem;align-items:end;padding:1rem;background:#fff;border:1px solid #dfe8f5;border-radius:17px;box-shadow:0 9px 28px rgba(7,25,71,.06)}
+.paper-tools label{display:grid;gap:.34rem;font-size:.75rem;font-weight:850;color:#25365f}
+.paper-tools input,.paper-tools select{width:100%;min-height:46px;padding:.65rem .8rem;border:1px solid #d7e1f0;border-radius:11px;background:#fff;color:#10234d;font:inherit}
+.paper-tools input:focus,.paper-tools select:focus{outline:3px solid #dceaff;border-color:#4a74c8}
+.paper-exact{display:flex!important;align-items:center;gap:.5rem;min-height:46px;padding:0 .2rem;white-space:nowrap}
+.paper-exact input{width:16px;height:16px;min-height:0;accent-color:#0a256b}
+.paper-clear{height:46px;padding:0 1rem;border:1px solid #d7e1f0;border-radius:999px;background:#f3f7fc;color:#18366f;font:inherit;font-weight:850;cursor:pointer}
+.paper-clear:hover{background:#e7effb}
+.paper-results{display:flex;justify-content:space-between;gap:1rem;align-items:center;margin:1.1rem 0 .55rem;color:#64738e;font-size:.82rem}
+.paper-results strong{color:#15366f}
+.paper-list{display:grid;gap:.7rem}
+.paper-row{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:1rem;align-items:center;padding:1.05rem 1.1rem;background:#fff;border:1px solid #dfe8f5;border-radius:15px;box-shadow:0 7px 20px rgba(7,25,71,.045);transition:transform .2s,box-shadow .2s}
+.paper-row:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(7,25,71,.09)}
+.paper-row[hidden]{display:none!important}
+.paper-number{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:#eaf2ff;color:#16427d;font-weight:950;font-size:.78rem}
+.paper-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.25rem}
+.paper-row .pill{margin:0;font-size:.58rem;padding:.28rem .55rem}
+.paper-title{font-size:1.03rem;font-weight:900;line-height:1.35;color:#0b245e;margin:.15rem 0 .28rem}
+.paper-details{font-size:.79rem;line-height:1.55;color:#62718d}
+.paper-details b{color:#384b70}
+.paper-view{min-width:138px;min-height:42px;padding:.55rem .8rem;border:1px dashed #b4c2d8;border-radius:999px;background:#f2f5f9;color:#737f92;font:inherit;font-size:.76rem;font-weight:850;cursor:not-allowed}
+.paper-template-help{margin:1.1rem 0 0;padding:1rem 1.1rem;border-left:4px solid #28a6bb;border-radius:0 12px 12px 0;background:#eef9fb;color:#50627b;font-size:.84rem}
+.paper-empty{display:none;padding:2rem;text-align:center;border:1px dashed #b6c7df;border-radius:15px;color:#63738f;background:#fff}
+.paper-empty.show{display:block}
+@media(max-width:900px){.paper-tools{grid-template-columns:1fr 1fr}.paper-tools label:first-child{grid-column:1/-1}}
+@media(max-width:620px){.papers-page{padding:2.3rem 0}.paper-tools{grid-template-columns:1fr}.paper-tools label:first-child{grid-column:auto}.paper-exact{white-space:normal}.paper-row{grid-template-columns:34px minmax(0,1fr);gap:.7rem;padding:.9rem}.paper-number{width:32px;height:32px}.paper-view{grid-column:2;justify-self:start}.paper-results{align-items:flex-start;flex-direction:column}}
+</style></head><body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5L2 9Z"/><path d="M6 11.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/><path d="M22 9v5"/></symbol>
+<symbol id="i-fish" viewBox="0 0 24 24"><path d="M6.5 12C7.4 8.8 9.9 7 13 7c3 0 5.6 1.8 6.5 5-.9 3.2-3.5 5-6.5 5-3.1 0-5.6-1.8-6.5-5Z"/><path d="M6.5 12L3 8.5v7L6.5 12Z"/><circle cx="15.5" cy="10.8" r=".6" fill="currentColor"/></symbol>
+<symbol id="i-wave" viewBox="0 0 24 24"><path d="M2 8c2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2 2.5-2 5-2"/><path d="M2 14c2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2 2.5-2 5-2"/></symbol>
+<symbol id="i-landmark" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M4 18h16"/><path d="M6 18v-7M10 18v-7M14 18v-7M18 18v-7"/><path d="M2 11l10-6 10 6H2Z"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></symbol>
+<symbol id="i-flask" viewBox="0 0 24 24"><path d="M10 3h4"/><path d="M10 3v5.2L4.6 18a2.2 2.2 0 0 0 2 3.2h10.8a2.2 2.2 0 0 0 2-3.2L14 8.2V3"/><path d="M7.5 15h9"/></symbol>
+<symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19C5 10.5 11.5 4 20 4c0 8.5-6 15-14 15"/><path d="M5 19c2.8-5.8 6.8-9.3 11-11"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c.6-3.3 3-5.2 6-5.2s5.4 1.9 6 5.2"/><path d="M16 5.2a3.5 3.5 0 0 1 0 5.9M17.5 15.3c2 .6 3.2 2.1 3.6 4.7"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2Z"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v11"/><path d="M7 10l5 5 5-5"/><path d="M4 21h16"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3L2.5 20h19L12 3Z"/><path d="M12 10v4"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="8" r=".6" fill="currentColor"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M22 7l-10 6L2 7"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13Z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></symbol>
+<symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.6 14L7 22l5-2.8L17 22l-1.6-8"/></symbol>
+<symbol id="i-fb" viewBox="0 0 24 24"><path d="M14.5 8.2H17V4.6h-2.5A4.3 4.3 0 0 0 10.2 9v1.8H7.5v3.4h2.7v7.2h3.5v-7.2h2.6l.5-3.4h-3.1V9c0-.5.3-.8.8-.8Z" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14h1M14 20h1M18 18h3v3h-3z"/></symbol>
+<symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+<symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+</svg>
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="govbar"><div class="govbar-inner"><div><b>REPUBLIC OF THE PHILIPPINES</b> &nbsp;·&nbsp; Partido State University</div><div><span class="iso">ISO 9001:2015 CERTIFIED</span> &nbsp;·&nbsp; Goa, Camarines Sur</div></div></div>
+<header class="site" id="siteHeader"><nav class="nav" aria-label="Main navigation">
+<a class="brand" href="index.html"><img src="assets/cfms-logo.png" alt="College of Fisheries and Marine Science (CFMS) official logo"><span class="brand-text"><small>Partido State University</small><strong>SAGÑAY CAMPUS</strong><span>College of Fisheries and Marine Science</span></span></a>
+<button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+<div class="nav-links" id="navLinks"><a href="index.html" class="">Home</a><a href="about.html" class="">About</a><a href="programs.html" class="">Programs</a><a href="published-papers.html" class="active">Research</a><a href="org-chart.html" class="">Org Chart</a><a href="campus-life.html" class="">Campus Life</a><a href="news.html" class="">News</a><a href="admissions.html" class="">Admissions</a><a href="faqs.html" class="">FAQs</a><a href="contact.html" class="">Contact</a><a class="btn btn-gold btn-sm" href="contact.html">Visit Us →</a></div></nav></header><main>
+<section class="page-hero"><div class="container"><div class="breadcrumb"><a href="index.html">Home</a> / Research</div><h1>Published Papers</h1><p>A searchable collection page for scholarly work by ParSU Sagñay Campus faculty and students.</p></div></section>
+<section class="papers-page"><div class="container">
+<div class="papers-intro"><span class="eyebrow">Research archive</span><h2>Collection of articles published</h2><p>Find papers by title, author, venue, or research area. Each record can link to its publisher page, DOI, or full-text PDF.</p></div>
+<div class="paper-template-note" role="note"><span class="note-mark" aria-hidden="true">!</span><div><strong>Template entries — replace before presenting as a live publication list</strong><p>The sample rows below are placeholders, not real publication records. Add verified titles, authors, year, publication venue, and an actual DOI, publisher, or PDF link before publishing this page as an official list.</p></div></div>
+<div class="paper-tools" role="search" aria-label="Search published papers">
+<label for="paperSearch">Search papers<input id="paperSearch" type="search" placeholder="Title, author, journal, or keyword…" autocomplete="off"></label>
+<label for="paperScope">Search in<select id="paperScope"><option value="all">Title and details</option><option value="title">Title only</option></select></label>
+<label for="paperType">Publication type<select id="paperType"><option value="">All types</option><option value="template">Template entries</option><option value="journal">Journal article</option><option value="conference">Conference paper</option><option value="chapter">Book chapter</option><option value="report">Technical report</option></select></label>
+<label class="paper-exact"><input id="paperExact" type="checkbox"> Exact title only</label>
+<button class="paper-clear" id="paperClear" type="button">Clear filters</button>
+</div>
+<div class="paper-results"><strong id="paperCount" aria-live="polite">3 template records</strong><span>Use “View” after adding a verified paper link.</span></div>
+<div class="paper-list" id="paperList">
+<!-- TEMPLATE ROW: Duplicate a .paper-row, replace the placeholder fields, set its data-type, and replace the disabled button with a View link to the DOI, publisher, or PDF. -->
+<article class="paper-row" data-type="template" data-title="Publication title placeholder 01" data-details="Authors to add year to add journal or conference to add research area to add DOI or PDF link to add">
+<div class="paper-number" aria-hidden="true">01</div><div><div class="paper-tags"><span class="pill pill-gold">Template entry</span><span class="pill pill-blue">Year to add</span></div><h3 class="paper-title">Publication title placeholder 01</h3><p class="paper-details"><b>Authors:</b> Add author names and affiliations &nbsp;·&nbsp; <b>Journal / conference:</b> Add venue &nbsp;·&nbsp; <b>Year:</b> Add year</p></div><button class="paper-view" type="button" disabled>View link not added</button>
+</article>
+<article class="paper-row" data-type="template" data-title="Publication title placeholder 02" data-details="Authors to add year to add journal or conference to add research area to add DOI or PDF link to add">
+<div class="paper-number" aria-hidden="true">02</div><div><div class="paper-tags"><span class="pill pill-gold">Template entry</span><span class="pill pill-blue">Year to add</span></div><h3 class="paper-title">Publication title placeholder 02</h3><p class="paper-details"><b>Authors:</b> Add author names and affiliations &nbsp;·&nbsp; <b>Journal / conference:</b> Add venue &nbsp;·&nbsp; <b>Year:</b> Add year</p></div><button class="paper-view" type="button" disabled>View link not added</button>
+</article>
+<article class="paper-row" data-type="template" data-title="Publication title placeholder 03" data-details="Authors to add year to add journal or conference to add research area to add DOI or PDF link to add">
+<div class="paper-number" aria-hidden="true">03</div><div><div class="paper-tags"><span class="pill pill-gold">Template entry</span><span class="pill pill-blue">Year to add</span></div><h3 class="paper-title">Publication title placeholder 03</h3><p class="paper-details"><b>Authors:</b> Add author names and affiliations &nbsp;·&nbsp; <b>Journal / conference:</b> Add venue &nbsp;·&nbsp; <b>Year:</b> Add year</p></div><button class="paper-view" type="button" disabled>View link not added</button>
+</article>
+</div>
+<div class="paper-empty" id="paperEmpty" role="status">No matching entries. Try another title or clear the filters.</div>
+<div class="paper-template-help"><b>For each real record:</b> add the verified citation details, update its type, and link “View” to the actual publication page or file. Do not use a news story as a substitute for the paper itself.</div>
+</div></section>
+</main>
+<footer><div class="container"><div class="footer-grid">
+<div><div class="footer-brand"><img src="assets/PSU-logo-official-web.png" alt="ParSU seal"><div><h4 style="margin-bottom:.3rem">Partido State University</h4><p><strong style="color:#fff">Sagñay Campus</strong><br>College of Fisheries and Marine Science<br>Nato, Sagñay, Camarines Sur</p></div></div>
+<p style="margin-top:1rem">A university of science and technology advancing geology and bio-resource science to promote sustainable and resilient communities.</p></div>
+<div><h4>Pages</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="programs.html">Programs</a><a href="org-chart.html">Org Chart &amp; Personnel</a><a href="campus-life.html">Campus Life</a></div>
+<div><h4>Information</h4><a href="news.html">News</a><a href="admissions.html">Admissions (Info)</a><a href="faqs.html">FAQs</a><a href="contact.html">Contact</a><a href="org-chart.html#personnel">Personnel Directory</a><a href="published-papers.html">Published Papers</a></div>
+<div><h4>Seven Campuses · One ParSU</h4><div class="campus-pills"><span>Goa (Main)</span><span>Caramoan</span><span>Lagonoy</span><span>Salogon</span><span>San Jose</span><span class="here">Sagñay ★</span><span>Tinambac</span></div>
+<p style="margin-top:1rem;font-size:.82rem">Official colors: <b style="color:#fff">Blue</b> (dominant), Yellow, Red &amp; Green.<br>ISO 9001:2015 Certified · RA 9029</p></div></div>
+<div class="footer-bottom"><span>© <span id="year">2026</span> Partido State University — Sagñay Campus. Multi-page prototype for review.</span><span>Prototype v4.0 · Not yet the official live site</span></div></div></footer>
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button><script src="assets/js/main.js"></script><script>
+(()=>{
+ const search=document.getElementById('paperSearch');
+ const scope=document.getElementById('paperScope');
+ const type=document.getElementById('paperType');
+ const exact=document.getElementById('paperExact');
+ const rows=[...document.querySelectorAll('.paper-row')];
+ const count=document.getElementById('paperCount');
+ const empty=document.getElementById('paperEmpty');
+ const clear=document.getElementById('paperClear');
+ const norm=s=>(s||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+ function apply(){
+  const q=norm(search.value);let visible=0;
+  rows.forEach(row=>{
+   const title=norm(row.dataset.title||row.querySelector('.paper-title')?.textContent);
+   const details=norm(row.dataset.details||row.textContent);
+   const hay=scope.value==='title'?title:`${title} ${details}`;
+   const matchesText=!q||(exact.checked?title===q:hay.includes(q));
+   const matchesType=!type.value||row.dataset.type===type.value;
+   const show=matchesText&&matchesType;row.hidden=!show;if(show)visible++;
+  });
+  count.textContent=`${visible} of ${rows.length} records shown`;
+  empty.classList.toggle('show',visible===0);
+ }
+ [search,scope,type,exact].forEach(el=>el.addEventListener(el.type==='search'?'input':'change',apply));
+ clear.addEventListener('click',()=>{search.value='';scope.value='all';type.value='';exact.checked=false;apply();search.focus();});
+})();
+</script></body></html>
